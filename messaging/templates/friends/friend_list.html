@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<form class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+
+
+<div class="row">
+  <div class="col-md-8" style="background-color:lavender;"><h4>My Friend</h4>
+  {% for friend in friends %}
+  <h5><a href="{% url 'view_user_profile' username=friend.username %}">{{ friend.username }}</a></h5>
+  <a href="{% url 'change_friend' operation='remove' username=friend.username  %}">
+    <button type="button" class="btn btn-secondary btn-sm">Remove Friend</button>
+  </a>
+  {% endfor %}
+
+  </div>
+
+
+<div class="col-md-4">
+  <h4>Other Users</h4>
+
+  {% for user in users %}
+  {% if not user in friends %}
+  <h6><a href="{% url 'view_user_profile' username=user.username %}">{{ user.username }}</a></h6>
+  <a href="{% url 'change_friend' operation='add' username=user.username  %}">
+  <button type="button" class="btn btn-info btn-sm">Add Friend</button></a>
+  {% endif %}
+  {% endfor %}
+</div>
+</div>
+
+{% endblock %}

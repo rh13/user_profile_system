@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+		<form action="" method="post" id="message_form">
+			{% csrf_token %}
+			<div id="message_audience">
+				<p>
+					Username: <input type="text" name="users"><br>
+				</p>
+
+			</div>
+			<p>Enter your message here:</p>
+			<textarea name="message" form="message_form" rows="10" cols="80"></textarea>
+			<p><input type="submit" value="submit"></p>
+		</form>
+		<div id="footer">
+			<a href="{% url 'user_page' username=user.username %}">Go back to your inbox</a>
+		</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+		<p><b>From {{ message.writer }}:--</b></p>
+		{{ message.message }}
+		<div id="footer">
+			<p><a href="{% url 'user_page' username=user.username %}">Go back to your homepage.</a></p>
+		</div>
+
+		{% endblock %}

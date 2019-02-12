@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>{{ user.username }}'s Profile<br></h3>
+First Name: {{ user.first_name }}<br>
+Last Name: {{ user.last_name }}<br>
+Email: {{ user.email }}<br>
+Contact: {{ user.userprofile.contact }}<br>
+City: {{ user.userprofile.city }}<br>
+Description: {{ user.userprofile.description }}<br>
+
+<a href="{% url 'send_message' request.user.username %}">Send a message</a>
+
+{% endblock %}

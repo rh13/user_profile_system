@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{message}}
+Name: {{ user.username }}<br>
+First Name: {{ user.first_name }}<br>
+Last Name: {{ user.last_name }}<br>
+Email: {{ user.email }}<br>
+Contact: {{ user.userprofile.contact }}<br>
+City: {{ user.userprofile.city }}<br>
+Description: {{ user.userprofile.description }}<br>
+
+<p><a class="btn btn-primary" href="{% url 'edit_bio' %}">Edit</a></p>
+<p><a class="btn btn-primary" href="{% url 'change_password' %}">change password</a></p>
+
+
+{% endblock %}
